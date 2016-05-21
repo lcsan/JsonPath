@@ -213,7 +213,7 @@ public class JsonPath {
 	 * @throws ScriptException
 	 * @see [类、类#方法、类#成员]
 	 */
-	private <T> void walk(String loc, String expr, T val, String path, int f) throws JSONException, ScriptException {
+	private void walk(String loc, String expr, Object val, String path, int f) throws JSONException, ScriptException {
 		if (val instanceof JSONArray) {
 			JSONArray jsary = (JSONArray) val;
 			for (int i = 0, j = jsary.length(); i < j; i++) {
@@ -271,7 +271,7 @@ public class JsonPath {
 	 * @throws ScriptException
 	 * @see [类、类#方法、类#成员]
 	 */
-	private <T> void slice(String loc, String expr, T val, String path) throws JSONException, ScriptException {
+	private void slice(String loc, String expr, Object val, String path) throws JSONException, ScriptException {
 		if (val instanceof JSONArray) {
 			JSONArray jsay = (JSONArray) val;
 			int len = jsay.length(), start = 0, end = len, step = 1;
@@ -307,7 +307,7 @@ public class JsonPath {
 	 * @throws ScriptException
 	 * @see [类、类#方法、类#成员]
 	 */
-	private <T> String eval(String loc, T val, String path) throws ScriptException {
+	private String eval(String loc, Object val, String path) throws ScriptException {
 		if (null != val && (val instanceof JSONArray || val instanceof JSONObject)) {
 			ScriptEngineManager manager = new ScriptEngineManager();
 			ScriptEngine se = manager.getEngineByName("js");
